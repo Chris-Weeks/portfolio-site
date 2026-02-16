@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Notable&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sonsie+One&display=swap');
 
 /* GRID */
 body {
@@ -21,8 +22,9 @@ header {
 .hero {
     grid-column: 1 / 7;
     grid-row: 1 / 4;
-    justify-items: center;
     align-content: center;
+    margin: 90px;
+    border-radius: 25px;
 }
 
 .about {
@@ -56,7 +58,6 @@ header {
 }
 
 .button {
-    /* background: linear-gradient(180deg,rgba(250, 106, 2, 1) 0%, rgba(235, 175, 103, 1) 100%); */
     background: var(--accent-color);
     color: var(--Font-color);
     transition: background 0.3s ease;
@@ -69,8 +70,9 @@ header {
 /* END Colour Scheme */
 
 body {
-    /* background: linear-gradient(180deg,rgba(28, 28, 28, 1) 0%, rgba(77, 77, 77, 1) 100%); */
-    background: var(--primary-color);
+    /*background: linear-gradient(180deg,rgba(21, 20, 25, 1) 0%, rgba(61, 31, 13, 1) 90%, rgba(130, 73, 33, 1) 100%); */
+    background: linear-gradient(180deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    /* background: var(--primary-color); */
     color: var(--Font-color);
 }
 
@@ -82,9 +84,38 @@ header nav {
     z-index: 1;
     padding: 20px;
     gap: 20px;
+    border-radius: 15px;
+    background: var(--container-color);
+    top: 10px
 }
 
-.header, .about, .skills, .work, .contact {
+.about, .skills, .work, .contact {
+    /*
     background: var(--container-color);
     border-radius: 25px;
+     */
+    background: rgba(224, 217, 217, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(14.4px);
+    -webkit-backdrop-filter: blur(14.4px);
 }
+
+.hero {
+    background: url('../media/vectors/hero_background.png');
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+.hello {
+    font-family: 'Sonsie One', cursive;
+    font-size: 7rem;
+}
+
+.hero h1, .hero h2 {
+    margin-left: 100px;
+}
+
+
