@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const initialDelay = 2000;
     const centerDuration = 5000;
-    const words = ["Hello", "Witai", "Bonjour", "Hola", "Guten Tag", "Ciao"];
+    const words = ["Hello", "Witaj", "Bonjour", "Hola", "Guten Tag", "Ciao"];
 
     const element = document.querySelector('.hello-title');
     const overlay = document.querySelector('.loader-overlay');
