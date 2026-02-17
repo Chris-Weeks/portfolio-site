@@ -10,6 +10,7 @@ body {
     align-content: center;
     gap: 20px;
     font-family: 'Notable', sans-serif;
+
 }
 
 header {
@@ -56,6 +57,7 @@ header {
     --Font-color: #FBFBFB;
     --container-color: linear-gradient(180deg,rgba(27, 27, 27, 1) 0%, rgba(38, 38, 38, 1) 100%);
 }
+/* END Colour Scheme */
 
 .button {
     background: var(--accent-color);
@@ -67,15 +69,58 @@ header {
     margin: auto;
 }
 
-/* END Colour Scheme */
+.loader-overlay {
+    position: fixed;
+    display: inline-block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    z-index: 999;
+    transition: opacity 0.8s ease-out;
+    align-content: center;
+    justify-items: center;
+}
+
+.loader {
+    width: 50px;
+    padding: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--accent-color);
+    /*noinspection CssInvalidFunction*/
+    --_m:
+            conic-gradient(#0000 10%,#000),
+            linear-gradient(#000 0 0) content-box;
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+    animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
+
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.body-visible {
+    overflow: auto; /* Re-enable scrolling */
+}
 
 body {
     /*background: linear-gradient(180deg,rgba(21, 20, 25, 1) 0%, rgba(61, 31, 13, 1) 90%, rgba(130, 73, 33, 1) 100%); */
-    background: linear-gradient(180deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    /* background: var(--primary-color); */
+    /*background: linear-gradient(180deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);*/
+    background: var(--primary-color);
     color: var(--Font-color);
 }
 
+body.loading {
+    overflow: hidden;
+}
 
 header nav {
     display: flex;
@@ -90,15 +135,13 @@ header nav {
 }
 
 .about, .skills, .work, .contact {
-    /*
     background: var(--container-color);
     border-radius: 25px;
-     */
-    background: rgba(224, 217, 217, 0.25);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(14.4px);
-    -webkit-backdrop-filter: blur(14.4px);
+    /*background: rgba(224, 217, 217, 0.25);*/
+    /*border-radius: 16px;*/
+    /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+    /*backdrop-filter: blur(14.4px);*/
+    /*-webkit-backdrop-filter: blur(14.4px);*/
 }
 
 .hero {
@@ -109,13 +152,116 @@ h1 {
     font-size: 4rem;
 }
 
-.hello {
+.hello-title {
     font-family: 'Sonsie One', cursive;
     font-size: 7rem;
+    margin: 0;
+    z-index: 1000;
+    display: inline-block;
+    position: relative;
+    transition: transform 1.5s cubic-bezier(0.76, 0, 0.24, 1), font-size 1.5s ease;
+    transform-origin: center;
 }
+
 
 .hero h1, .hero h2 {
     margin-left: 100px;
 }
 
+.skills {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+}
+
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.skills-list li {
+    list-style: none;
+}
+
+.icon-html::before {
+    content: url(https://skillicons.dev/icons?i=html);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-css::before {
+    content: url(https://skillicons.dev/icons?i=css);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-javascript::before {
+    content: url(https://skillicons.dev/icons?i=js);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-react::before {
+    content: url(https://skillicons.dev/icons?i=react);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-nodejs::before {
+    content: url(https://skillicons.dev/icons?i=nodejs);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-express::before {
+    content: url(https://skillicons.dev/icons?i=express);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-mongodb::before {
+    content: url(https://skillicons.dev/icons?i=mongodb);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-git::before {
+    content: url(https://skillicons.dev/icons?i=git);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-github::before {
+    content: url(https://skillicons.dev/icons?i=github);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.icon-figma::before {
+    content: url(https://skillicons.dev/icons?i=figma);
+    position: relative;
+    right: 10px;
+    top: 15px;
+}
+
+.container-heading {
+    background: #000000;
+    margin: 10px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    box-shadow: inset 0 0 8px 0 rgb(255 255 255 / 33%);
+
+}
 

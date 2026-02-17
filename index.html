@@ -6,6 +6,9 @@
     <title>Chris Weeks | Frontend Developer and Designer</title>
 </head>
 <body>
+<div id="loader-overlay" class="loader-overlay">
+    <div class="loader" id="initial-loader"></div>
+</div>
 <header>
     <nav class="nav">
         <a class="button" href="#home">Home</a>
@@ -16,24 +19,37 @@
     </nav>
 </header>
 <div class="hero" id="home">
-<h1><span class="hello">Hello</span>,<br> I'm Chris</h1>
+<h1 class="hello-title" style="opacity: 0; height: 200px">Hello</h1>
+<h1>I'm Chris</h1>
 <h2>A frontend web developer and UI/UX designer.</h2>
 </div>
 <div class="about" id="about">
-    <h2>About</h2>
+    <h2 class="container-heading">About</h2>
     <p>I'm a frontend web developer and UI/UX designer based in London. I enjoy creating clean, responsive websites and applications.</p>
 </div>
 <div class="skills" id="skills">
-    <h2>Skills</h2>
-    <p>HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, Git, GitHub, Figma</p>
+    <h2 class="container-heading">Skills</h2>
+    <ul class="skills-list">
+        <li class="icon-html">HTML</li>
+        <li class="icon-css">CSS</li>
+        <li class="icon-javascript">JavaScript</li>
+        <li class="icon-react">React</li>
+        <li class="icon-nodejs">Node.js</li>
+        <li class="icon-express">Express</li>
+        <li class="icon-mongodb">MongoDB</li>
+        <li class="icon-git">Git</li>
+        <li class="icon-github">GitHub</li>
+        <li class="icon-figma">Figma</li>
+    </ul>
 </div>
 <div class="work" id="work">
-    <h2>My Work</h2>
+    <h2 class="container-heading">My Work</h2>
     <p>Coming soon...</p>
 </div>
 <div class="contact" id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mail:christopherweeks93@gmail.com">christopherweeks93@gmail.com</a></p>
+    <h2 class="container-heading">Contact</h2>
+    <address>Email: <a href="mailto:christopherweeks93@gmail.com" aria-label="Email christopherweeks93@gmail.com">christopherweeks93@gmail.com</a>
+    </address>
 </div>
 
 </body>
