@@ -137,6 +137,7 @@ header nav {
 .about, .skills, .work, .contact {
     background: var(--container-color);
     border-radius: 25px;
+    margin: 20px;
     /*background: rgba(224, 217, 217, 0.25);*/
     /*border-radius: 16px;*/
     /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
@@ -150,6 +151,10 @@ header nav {
 
 h1 {
     font-size: 4rem;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .hello-title {
@@ -257,11 +262,85 @@ h1 {
 }
 
 .container-heading {
-    background: #000000;
     margin: 10px;
     padding: 5px 10px;
-    border-radius: 20px;
-    box-shadow: inset 0 0 8px 0 rgb(255 255 255 / 33%);
-
 }
 
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about.grid-container p {
+    padding: 50px;
+    line-height: 3;
+}
+
+.work-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px;
+    justify-content: flex-start;
+}
+
+.work-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--primary-color);
+    border-radius: 15px;
+    padding: 10px;
+    width: 30%;
+    gap: 10px;
+    position: relative;
+}
+
+.work-item a {
+    text-decoration: none;
+    color: var(--Font-color);
+    position: relative;
+}
+
+.work-item a:before {
+    content: '';
+    background-color: black;
+    background-image: url("../media/vectors/arrow-up-right-from-square-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    border-radius: 15px;
+}
+
+.work-item:hover:before {
+    opacity: 0.8;
+}
+
+.work-item img {
+    border-radius: 5px;
+}
+
+.work-item h3 {
+    padding: 10px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.contact img {
+    width: auto;
+    height: 300px;
+    border-radius: 100%;
+}
