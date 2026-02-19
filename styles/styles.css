@@ -229,9 +229,8 @@ header nav {
 .icon-javascript::before,
 .icon-git::before,
 .icon-github::before,
-.icon-sql::before,
-.icon-magento::before,
-.icon-windows-svr::before {
+.icon-react::before,
+.icon-magento::before {
     position: relative;
     right: 10px;
     top: 15px;
@@ -265,12 +264,8 @@ header nav {
     content: url(../media/icons/Magento_Icon.png);
 }
 
-.icon-windows-svr::before {
-    content: url(https://skillicons.dev/icons?i=windows&theme=light&perline=15);
-}
-
-.icon-sql::before {
-    content: url(../media/icons/microsoft-sql-icons.png)
+.icon-react::before {
+    content: url(https://skillicons.dev/icons?i=react);
 }
 
 /* Work Section */
