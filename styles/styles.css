@@ -21,13 +21,14 @@
 body {
     display: grid;
     grid-auto-flow: dense;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: 10% 1fr 1fr 1fr 1fr 10%;
     grid-auto-rows: 25vh;
     align-content: center;
     gap: 20px;
     font-family: "Special Gothic Expanded One", sans-serif;
     background: var(--primary-color);
     color: var(--Font-color);
+    font-size: 16px;
 }
 
 body.loading {
@@ -53,7 +54,8 @@ header {
     grid-column: 1 / 7;
     grid-row: 1 / 2;
     align-content: start;
-    justify-items: center;
+    justify-content: center;
+    display: flex;
 }
 
 .hero {
@@ -129,6 +131,7 @@ header nav {
     -webkit-mask-composite: source-out;
     mask-composite: subtract;
     animation: l3 1s infinite linear;
+    margin: auto;
 }
 
 @keyframes l3 {
@@ -207,10 +210,6 @@ header nav {
     flex-direction: column;
     gap: 20px;
     align-items: center;
-}
-
-.splide {
-    display: none;
 }
 
 .skills-list {
@@ -323,11 +322,16 @@ header nav {
     border-radius: 100%;
 }
 
+.contact a {
+    color: var(--accent-color);
+
+}
+
 /* =========================================================
    Responsiveness
    ========================================================= */
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1299px) {
     header nav {
         width: 100%;
         top: unset;
@@ -351,14 +355,10 @@ header nav {
         grid-column: 1 / 7;
         grid-row: 9 / 11;
     }
-    .splide {
-        display: block;
-    }
-    .skills-list .splide__list {
-        display: flex !important;
-    }
     .skills-list {
-        display: none;
+        flex-direction: row;
+        gap: 30px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
 }
