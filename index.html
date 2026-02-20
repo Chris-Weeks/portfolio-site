@@ -1,35 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <link rel="stylesheet" href="./styles/styles.css">
-    <link rel="stylesheet" href="./styles/reset.css">
     <title>Chris Weeks | Frontend Developer and Designer</title>
+    <!-- Keep your reset if you like, though Tailwind includes its own modern reset (Preflight) automatically -->
+    <link rel="stylesheet" href="./styles/reset.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Notable&family=Sonsie+One&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#151419',
+                        accent: '#F56E0F',
+                        font: '#FBFBFB',
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "url('media/vectors/hero_background.png')",
+                        'container-gradient': 'linear-gradient(180deg, rgba(27, 27, 27, 1) 0%, rgba(38, 38, 38, 1) 100%)',
+                    },
+                    fontFamily: {
+                        special: ['"Special Gothic Expanded One"', 'sans-serif'],
+                        sonsie: ['"Sonsie One"', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS using Tailwind directives -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .loader-mask {
+                --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+                -webkit-mask: var(--_m);
+                mask: var(--_m);
+                -webkit-mask-composite: source-out;
+                mask-composite: subtract;
+            }
+
+            .glass {
+                background: rgba(21, 20, 25, 0.4);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        /* Icon setup */
+        .skills-list li::before {
+            position: relative;
+            right: 10px;
+            top: 15px;
+        }
+        .icon-html::before { content: url('https://skillicons.dev/icons?i=html'); }
+        .icon-css::before { content: url('https://skillicons.dev/icons?i=css'); }
+        .icon-javascript::before { content: url('https://skillicons.dev/icons?i=js'); }
+        .icon-git::before { content: url('https://skillicons.dev/icons?i=git'); }
+        .icon-github::before { content: url('https://skillicons.dev/icons?i=github'); }
+        .icon-magento::before { content: url('media/icons/Magento_Icon.png'); }
+        .icon-react::before { content: url('https://skillicons.dev/icons?i=react'); }
+    </style>
 </head>
-<body>
-<div id="loader-overlay" class="loader-overlay">
-    <div class="loader" id="initial-loader"></div>
+<body class="flex flex-col content-center gap-5 font-special bg-primary text-font text-base overflow-x-hidden">
+
+<div id="loader-overlay" class="fixed inset-0 w-full h-full bg-primary z-[999] transition-opacity duration-800 ease-out grid place-content-center">
+    <div class="w-[50px] p-2 aspect-square rounded-full bg-accent loader-mask animate-spin m-auto" id="initial-loader"></div>
 </div>
-<header>
-    <nav class="nav">
-        <a class="button" href="#home">Home</a>
-        <a class="button" href="#about">About</a>
-        <a class="button" href="#skills">Skills</a>
-        <a class="button" href="#work">My Work</a>
-        <a class="button" href="#contact">Contact</a>
+
+<header class="flex justify-center content-start w-full relative z-[100]">
+    <!-- Mobile Top Bar -->
+    <div class="xl:hidden fixed top-0 left-0 w-full bg-black py-6 px-8 flex justify-end shadow-md">
+        <button id="mobile-menu-btn" class="text-accent text-5xl focus:outline-none">
+            &#9776;
+        </button>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav id="navbar" class="hidden xl:flex flex-col xl:flex-row fixed xl:justify-center z-[100] p-5 gap-5 xl:rounded-[15px] bg-black xl:bg-container-gradient top-[68px] xl:top-[10px] w-full xl:w-auto xl:h-auto shadow-2xl xl:shadow-none transition-all duration-300 left-0 xl:left-auto">
+        <a class="nav-link bg-accent text-font transition-colors duration-300 rounded px-5 py-4 xl:py-2.5 text-center text-2xl xl:text-base no-underline hover:bg-orange-600 w-[90%] mx-auto xl:w-auto xl:mx-0" href="#home">Home</a>
+        <a class="nav-link bg-accent text-font transition-colors duration-300 rounded px-5 py-4 xl:py-2.5 text-center text-2xl xl:text-base no-underline hover:bg-orange-600 w-[90%] mx-auto xl:w-auto xl:mx-0" href="#about">About</a>
+        <a class="nav-link bg-accent text-font transition-colors duration-300 rounded px-5 py-4 xl:py-2.5 text-center text-2xl xl:text-base no-underline hover:bg-orange-600 w-[90%] mx-auto xl:w-auto xl:mx-0" href="#skills">Skills</a>
+        <a class="nav-link bg-accent text-font transition-colors duration-300 rounded px-5 py-4 xl:py-2.5 text-center text-2xl xl:text-base no-underline hover:bg-orange-600 w-[90%] mx-auto xl:w-auto xl:mx-0" href="#work">My Work</a>
+        <a class="nav-link bg-accent text-font transition-colors duration-300 rounded px-5 py-4 xl:py-2.5 text-center text-2xl xl:text-base no-underline hover:bg-orange-600 w-[90%] mx-auto xl:w-auto xl:mx-0" href="#contact">Contact</a>
     </nav>
 </header>
-<div class="hero" id="home">
-<h1 class="hello-title" style="opacity: 0; height: 200px"> Hello</h1>
-<h1>I'm Chris</h1>
-<h2>A frontend web developer and UI/UX designer.</h2>
+
+<!-- Hero + About wrapper -->
+<div class="relative m-0 xl:mx-[90px] xl:mt-[90px] mt-[80px] mb-0">
+    <!-- Hero -->
+    <div class="rounded-[25px] bg-hero-pattern bg-cover bg-no-repeat h-[40vh] xl:h-[80vh] flex items-center" id="home">
+        <div class="ml-0 xl:ml-[100px] text-center xl:text-left w-full">
+            <h1 class="hello-title font-sonsie text-5xl xl:text-[7rem] m-0 z-[1000] inline-block relative origin-center transition-all duration-1000 h-[60px] xl:h-[120px] leading-none" style="opacity: 0;"> Hello</h1>
+            <h1 class="text-4xl xl:text-6xl mt-4">I'm Chris</h1>
+            <h2 class="text-xl xl:text-2xl mt-4 px-4 xl:px-0">A frontend web developer and UI/UX designer.</h2>
+        </div>
+    </div>
+
+    <!-- About (overlapping on desktop) -->
+    <div class="xl:absolute xl:bottom-[-60px] xl:right-[40px] xl:w-[45%] z-10 flex flex-col items-center glass rounded-[25px] m-5 xl:m-0 p-5 shadow-2xl" id="about">
+        <h2 class="m-2.5 py-1 px-2.5 text-3xl">About</h2>
+        <p class="p-5 xl:p-[30px] leading-[2.5] xl:leading-[2] text-lg xl:text-base text-center">I am a Front-End Developer and UI/UX Designer specializing in custom web builds and e-commerce platforms. I love bridging the gap between high-quality, accessible user interfaces (HTML, CSS, JavaScript) and complex backend integrations. Currently, I'm advancing my skills through a Full Stack Engineer Career Path to build even more resilient, scalable web solutions.</p>
+    </div>
 </div>
-<div class="about grid-container" id="about">
-    <h2 class="container-heading">About</h2>
-    <p>I am a Front-End Developer and UI/UX Designer specializing in custom web builds and e-commerce platforms. I love bridging the gap between high-quality, accessible user interfaces (HTML, CSS, JavaScript) and complex backend integrations. Currently, I'm advancing my skills through a Full Stack Engineer Career Path to build even more resilient, scalable web solutions.</p>
-</div>
-<div class="skills grid-container" id="skills">
-    <h2 class="container-heading">Skills</h2>
-    <ul class="skills-list">
+
+<!-- Spacer to account for the overlap on desktop -->
+<div class="hidden xl:block h-[80px]"></div>
+
+<div class="flex flex-col items-center glass rounded-[25px] m-5 p-5 xl:col-span-6" id="skills">
+    <h2 class="m-2.5 py-1 px-2.5 text-3xl">Skills</h2>
+    <ul class="skills-list flex flex-row flex-wrap justify-center gap-8 md:gap-12 text-2xl md:text-lg p-5">
         <li class="icon-html">HTML</li>
         <li class="icon-css">CSS</li>
         <li class="icon-javascript">JavaScript</li>
@@ -39,28 +128,37 @@
         <li class="icon-github">GitHub</li>
     </ul>
 </div>
-<div class="work grid-container" id="work">
-    <h2 class="container-heading">My Work</h2>
-    <div class="work-grid">
-        <div class="work-item"><a href="https://bosskeycreative.design/" target="_blank">
-            <img src="media/projects/bosskey_creative.jpg" alt="Bosskey Creative">
-            <h3>Bosskey Creative</h3>
-            <p>A fully responsive agency portfolio built from scratch using HTML5, CSS3, and JavaScript. Developed to demonstrate mobile-first UI design and interactive DOM manipulation. Integrated custom JavaScript to create an interactive light/dark mode toggle.</p>
-        </a></div>
-        <div class="work-item"><a href="https://chris-weeks.github.io/Project_Tea_Cozy/" target="_blank">
-            <img src="media/projects/project-tea-cozy.jpg" alt="Project Tea Cozy">
-            <h3>Project Tea Cozy</h3>
-            <p>Portfolio project built for my Codecademy course. A responsive landing page built with semantic HTML and CSS Flexbox to demonstrate structured, accessible web design.</p>
-        </a></div>
+
+<div class="flex flex-col items-center glass rounded-[25px] m-5 p-5 xl:col-span-6" id="work">
+    <h2 class="m-2.5 py-1 px-2.5 text-3xl">My Work</h2>
+    <div class="flex flex-col xl:flex-row gap-5 p-5">
+        <div class="flex-1 bg-primary rounded-[15px] p-5 hover:scale-105 transition-transform duration-300">
+            <a href="https://bosskeycreative.design/" target="_blank" class="no-underline text-font flex flex-col items-center">
+                <img src="media/projects/bosskey_creative.jpg" alt="Bosskey Creative" class="rounded-[10px] mb-4">
+                <h3 class="text-2xl mb-2">Bosskey Creative</h3>
+                <p class="text-center text-sm">A fully responsive agency portfolio built from scratch using HTML5, CSS3, and JavaScript. Developed to demonstrate mobile-first UI design and interactive DOM manipulation. Integrated custom JavaScript to create an interactive light/dark mode toggle.</p>
+            </a>
+        </div>
+        <div class="flex-1 bg-primary rounded-[15px] p-5 hover:scale-105 transition-transform duration-300">
+            <a href="https://chris-weeks.github.io/Project_Tea_Cozy/" target="_blank" class="no-underline text-font flex flex-col items-center">
+                <img src="media/projects/project-tea-cozy.jpg" alt="Project Tea Cozy" class="rounded-[10px] mb-4">
+                <h3 class="text-2xl mb-2">Project Tea Cozy</h3>
+                <p class="text-center text-sm">Portfolio project built for my Codecademy course. A responsive landing page built with semantic HTML and CSS Flexbox to demonstrate structured, accessible web design.</p>
+            </a>
+        </div>
     </div>
 </div>
-<div class="contact grid-container" id="contact">
-    <h2 class="container-heading">Contact</h2>
-    <img src="media/headshots/chris-weeks-headshot.webp" alt="Chris Weeks Headshot">
-    <h3>Christopher Weeks</h3>
-    <address>Email: <a href="mailto:christopherweeks93@gmail.com" aria-label="Email christopherweeks93@gmail.com">christopherweeks93@gmail.com</a>
+
+<div class="flex flex-col items-center glass rounded-[25px] m-5 p-5 xl:col-span-6" id="contact">
+    <h2 class="m-2.5 py-1 px-2.5 text-3xl">Contact</h2>
+    <img src="media/headshots/chris-weeks-headshot.webp" alt="Chris Weeks Headshot" class="rounded-full w-48 h-48 object-cover my-5 border-4 border-accent">
+    <h3 class="text-2xl mb-2">Christopher Weeks</h3>
+    <address class="not-italic">
+        Email: <a href="mailto:christopherweeks93@gmail.com" aria-label="Email christopherweeks93@gmail.com" class="text-accent hover:underline">christopherweeks93@gmail.com</a>
     </address>
 </div>
+
+<!-- ... the rest of the body keeping similar translations for the layout ... -->
 
 </body>
 <footer>

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const words = ["Hello", "Witaj", "Bonjour", "Hola", "Guten Tag", "Ciao"];
 
     const element = document.querySelector('.hello-title');
-    const overlay = document.querySelector('.loader-overlay');
+    const overlay = document.querySelector('#loader-overlay');
     const spinner = document.querySelector('#initial-loader');
 
 
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         setTimeout(() => {
             element.style.transform = 'translate(0, 0)';
+            element.style.zIndex = '1';
 
             overlay.style.opacity = '0';
 
@@ -69,4 +70,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }, centerDuration);
 
     }, initialDelay);
+
+    // Hamburger menu logic
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    if (mobileBtn && navbar) {
+        // Toggle the menu on mobile button click
+        mobileBtn.addEventListener('click', () => {
+            navbar.classList.toggle('hidden');
+            navbar.classList.toggle('flex');
+        });
+
+        // Close the menu when a navigation link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Only close it automatically if we are on a mobile screen (Tailwind xl breakpoint = 1280px)
+                if (window.innerWidth < 1280) {
+                    navbar.classList.add('hidden');
+                    navbar.classList.remove('flex');
+                }
+            });
+        });
+    }
 });
