@@ -56,7 +56,6 @@
         <nav class="site-nav" aria-label="Sections">
             <ul>
                 <li><a href="#what-i-do">What I do</a></li>
-                <li><a href="#work">Work</a></li>
                 <li><a href="#built">Built</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
@@ -68,24 +67,19 @@
 
 <main id="main">
 
-    <!-- 1. Hero / positioning -->
     <section class="hero" id="top">
         <div class="shell">
             <h1 class="hero__name">Chris Weeks</h1>
-            <!-- The dash is bound to the following word so a wrap breaks after
-                 "Engineer" rather than stranding an em dash at the line end. -->
-            <p class="hero__positioning">Technical Solutions Engineer —&nbsp;Integrations, Front-End and Automation</p>
+            <p class="hero__positioning">Technical Solutions Engineer<br>Integrations, Front-End and Automation</p>
             <p class="hero__lede">
-                I work across 110+ ecommerce sites running on Magento&nbsp;2, Shopify, WooCommerce and
-                BigCommerce, integrated with EPOS and stock systems. I configure how those systems talk
-                to each other, work out why they've stopped, build the front-end on top, and then sit
-                down with the client and explain it.
+                Technical solutions engineer working with over 100 clients to provide ecommerce sites integrated
+                with a bespoke EPOS, reporting and stock management software. I cover API and integration work,
+                database management, front-end builds, and the training and consultancy that goes with them.
             </p>
             <p class="hero__meta">Tonbridge, Kent <span aria-hidden="true">·</span> Open to remote and London hybrid</p>
             <ul class="linklist hero__links">
                 <li><a href="mailto:christopherweeks93@gmail.com">christopherweeks93@gmail.com</a></li>
-                <!-- TODO: replace with the real LinkedIn profile URL before merging. -->
-                <li><a href="https://www.linkedin.com/in/REPLACE-ME/" rel="me noopener">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/christopher-weeks-8626a3266/" rel="me noopener">LinkedIn</a></li>
                 <li><a href="https://github.com/Chris-Weeks" rel="me noopener">GitHub</a></li>
             </ul>
         </div>
@@ -99,17 +93,15 @@
                 <article class="capability reveal">
                     <h3>Integrations and data</h3>
                     <p>
-                        REST and SOAP APIs, middleware troubleshooting, multi-platform ecommerce sync,
-                        T-SQL development including stored procedures and triggers, SQL Server
-                        performance diagnostics.
+                        APIs, multi-platform ecommerce sync, data migration,
+                        T-SQL development including stored procedures and triggers, end-to-end client onboarding.
                     </p>
                 </article>
                 <article class="capability reveal">
                     <h3>Front-end and design</h3>
                     <p>
                         Bespoke responsive builds, landing pages, brand-led design, Magento&nbsp;2 theming
-                        and Page Builder, semantic HTML, CSS and JavaScript, GA4 and Google Tag Manager
-                        with Consent Mode v2.
+                        and Page Builder, semantic HTML, CSS and JavaScript, GA4 and Google Tag Manager.
                     </p>
                 </article>
                 <article class="capability reveal">
@@ -123,139 +115,6 @@
         </div>
     </section>
 
-    <!-- 3. Selected work -->
-    <section class="section" id="work">
-        <div class="shell">
-            <h2 class="section__title">Selected work</h2>
-
-            <article class="case reveal">
-                <p class="case__index" aria-hidden="true">01</p>
-                <div class="case__body">
-                    <h3>Proving a third-party API deviated from its schema</h3>
-                    <p class="case__problem">
-                        Product syncs between an EPOS system and a client's WooCommerce store were
-                        failing intermittently. The client's development team had reported it as a bug
-                        in how product status was being handled.
-                    </p>
-                    <p>
-                        I traced the failure to how unpublished products were returned by the
-                        WooCommerce products endpoint, which meant records that already existed were
-                        being treated as new and hitting duplicate key errors.
-                    </p>
-                    <p>
-                        To establish where the fault actually sat, I sent an invalid status value to the
-                        API. A correctly behaving install returns a validation error. This one returned a
-                        success response with an empty result set, showing that the parameter filtered
-                        results without validating its accepted values, and that runtime behaviour did
-                        not match the published schema.
-                    </p>
-                    <p>
-                        I scoped the fix and evidenced to the client's development team that what they
-                        had reported as a defect was working as designed, with the deviation sitting in
-                        the third-party API.
-                    </p>
-                    <ul class="tags">
-                        <li>REST APIs</li>
-                        <li>WooCommerce</li>
-                        <li>Root cause analysis</li>
-                        <li>Client communication</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="case reveal">
-                <p class="case__index" aria-hidden="true">02</p>
-                <div class="case__body">
-                    <h3>Automating a manual merchandising process</h3>
-                    <p class="case__problem">
-                        Merchandisers were manually flagging featured products across ecommerce sites,
-                        repeatedly and by hand.
-                    </p>
-                    <p>
-                        I identified the opportunity and wrote the specification for a Magento&nbsp;2
-                        module that promotes featured products to the top of their department listings
-                        with distinct visual styling, giving retailers a way to draw attention to key
-                        lines.
-                    </p>
-                    <p>
-                        I then built the T-SQL stored procedure that sets those flags automatically from
-                        rolling 90-day best-seller data, handling ranking, expiry when a product drops
-                        out of rank, and marking changed records for downstream sync.
-                    </p>
-                    <p>
-                        The module was built by the development team from my specification. I led testing
-                        throughout and reported defects through to release. A recurring manual job became
-                        an automated one.
-                    </p>
-                    <ul class="tags">
-                        <li>T-SQL</li>
-                        <li>Requirements</li>
-                        <li>QA</li>
-                        <li>Magento 2</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="case reveal">
-                <p class="case__index" aria-hidden="true">03</p>
-                <div class="case__body">
-                    <h3>Homepage redesign and mobile optimisation</h3>
-                    <p class="case__problem">
-                        A long-standing retail client needed their homepage modernising and optimising
-                        for mobile.
-                    </p>
-                    <p>
-                        I developed the visual direction around their established brand and site theme,
-                        sourcing or building all supporting assets, and delivered it as a responsive,
-                        mobile-first build.
-                    </p>
-                    <p>
-                        The brief assumed a static, category-led homepage. I advised against it and made
-                        the case for a dedicated promotions area updated regularly instead, setting out
-                        why a homepage that rarely changes works against a retailer commercially.
-                    </p>
-                    <p>
-                        I kept a detailed work log throughout, giving the client full transparency over
-                        time spent against each element of the design.
-                    </p>
-                    <ul class="tags">
-                        <li>Responsive design</li>
-                        <li>Brand</li>
-                        <li>Magento 2</li>
-                        <li>Client consultancy</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="case reveal">
-                <p class="case__index" aria-hidden="true">04</p>
-                <div class="case__body">
-                    <h3>AI-assisted documentation pipeline</h3>
-                    <p class="case__problem">
-                        Writing up client meetings was taking hours each week and the output varied
-                        between people.
-                    </p>
-                    <p>
-                        I built a pipeline in Make.com that takes meeting transcripts from cloud storage,
-                        processes them through the Claude API, and returns structured recaps with a
-                        narrative summary and split-ownership action tables.
-                    </p>
-                    <p>
-                        It removed the manual write-up and standardised the format. I have since built an
-                        inbox triage flow in Power Automate using AI Builder on the same principle.
-                    </p>
-                    <ul class="tags">
-                        <li>Make.com</li>
-                        <li>Claude API</li>
-                        <li>Power Automate</li>
-                        <li>Process automation</li>
-                    </ul>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- 4. Things I've built -->
     <section class="section" id="built">
         <div class="shell">
             <h2 class="section__title">Things I've built</h2>
@@ -298,7 +157,6 @@
         </div>
     </section>
 
-    <!-- 5. About + contact -->
     <section class="section" id="about">
         <div class="shell about">
             <div class="about__text reveal">
@@ -319,8 +177,7 @@
                 <h3 class="about__contact-title">Contact</h3>
                 <address class="linklist">
                     <a href="mailto:christopherweeks93@gmail.com">christopherweeks93@gmail.com</a>
-                    <!-- TODO: replace with the real LinkedIn profile URL before merging. -->
-                    <a href="https://www.linkedin.com/in/REPLACE-ME/" rel="me noopener">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/christopher-weeks-8626a3266/" rel="me noopener">LinkedIn</a>
                     <a href="https://github.com/Chris-Weeks" rel="me noopener">GitHub</a>
                 </address>
             </div>
@@ -336,7 +193,6 @@
 <footer class="site-footer">
     <div class="shell site-footer__inner">
         <p>Chris Weeks — Technical Solutions Engineer</p>
-        <p>Hand-written HTML, CSS and JavaScript. No framework, no trackers.</p>
     </div>
 </footer>
 
